@@ -1,0 +1,5 @@
+<h1>Agendas</h1>
+
+<div *ngFor="let agenda of agendas$ | async">
+  <div><span><a [routerLink]="['/agendas', agenda.Id]" routerLinkActive="router-link-active" >{{agenda.Id}}</a></span>|<span> {{agenda.Description}}</span></div>
+</div>

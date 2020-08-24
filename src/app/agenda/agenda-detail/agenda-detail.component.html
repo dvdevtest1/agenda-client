@@ -1,0 +1,5 @@
+<h2>{{agenda?.Description}}</h2>
+<mat-form-field>
+  <input matInput placeholder="Agenda description">
+</mat-form-field>
+<app-todo-list [todos]="agenda?.Todos"></app-todo-list>

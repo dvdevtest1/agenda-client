@@ -1,0 +1,26 @@
+<h1>Register</h1>
+<form (ngSubmit)="onSubmit(user)" #registerForm="ngForm" *ngIf="user$ | async as user; else loading">
+  <div>
+    <label for="firstname">First Name</label>
+    <input type="text" [(ngModel)]="user.FirstName" name="firstname" id="firstname" #firstname="ngModel" required>
+    <div [hidden]="firstname.pristine || firstname.valid">You need to fill in your first name</div>
+  </div>
+  <div>
+    <label for="lastname">Last Name</label>
+    <input type="text" [(ngModel)]="user.LastName" name="lastname" id="lastname" required>
+  </div>
+  <div>
+    <label for="birthdate">Birthdate Name</label>
+    <input type="date" [(ngModel)]="user.BirthDate" name="birthdate" id="birthdate" required>
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="email" [(ngModel)]="user.Email" name="email" id="email" required email>
+  </div>
+  <div>
+    <button type="submit" [disabled]="!registerForm.valid">Register</button>
+  </div>
+</form>
+<ng-template #loading>
+  Loading data...
+</ng-template>
